@@ -56,3 +56,6 @@ MDK-ARM/main/main.axf
 MDK-ARM/main/main.axf
 *.axf
 MDK-ARM/main/main.crf
+MDK-ARM/main/main.axf
+MDK-ARM/main/main.crf
+*.crf
