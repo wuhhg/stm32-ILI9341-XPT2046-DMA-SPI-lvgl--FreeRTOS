@@ -50,3 +50,7 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+MDK-ARM/main/main.crf
+MDK-ARM/main/main.axf
+*.crf
+MDK-ARM/main/main.axf
