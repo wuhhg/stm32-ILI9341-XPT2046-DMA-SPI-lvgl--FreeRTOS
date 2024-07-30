@@ -7,7 +7,7 @@
  *      INCLUDES
  *********************/
 #include "lv_demo_stress.h"
-
+#define LV_USE_DEMO_STRESS 1
 #if LV_USE_DEMO_STRESS
 /*********************
  *      DEFINES

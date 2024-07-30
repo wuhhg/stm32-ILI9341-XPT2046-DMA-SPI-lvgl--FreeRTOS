@@ -312,11 +312,8 @@ void ILI9341_FillRectangle_3(uint16_t x, uint16_t y, uint16_t w, uint16_t h, lv_
     if((x >= ILI9341_WIDTH) || (y >= ILI9341_HEIGHT)) return;
     if((x + w - 1) >= ILI9341_WIDTH) w = ILI9341_WIDTH - x;
     if((y + h - 1) >= ILI9341_HEIGHT) h = ILI9341_HEIGHT - y;
-
     ILI9341_Select();
     ILI9341_SetAddressWindow(x, y, x+w-1, y+h-1);
-		
-
     HAL_GPIO_WritePin(ILI9341_DC_GPIO_Port, ILI9341_DC_Pin, GPIO_PIN_SET);
     for(y = h; y > 0; y--) {
         for(x = w; x > 0; x--) {

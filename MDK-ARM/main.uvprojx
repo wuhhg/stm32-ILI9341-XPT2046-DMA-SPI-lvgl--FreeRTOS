@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F411xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Inc;C:/Users/admin/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc;C:/Users/admin/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;C:/Users/admin/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include;C:/Users/admin/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include;../Lib/ili9341;../Middlewares/LVGL/GUI;../Middlewares/LVGL/GUI/lvgl;../Middlewares/LVGL/GUI/lvgl/src;../Middlewares/LVGL/GUI/lvgl/examples/porting</IncludePath>
+              <IncludePath>../Inc;C:/Users/admin/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc;C:/Users/admin/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;C:/Users/admin/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include;C:/Users/admin/STM32Cube/Repository/STM32Cube_FW_F4_V1.28.0/Drivers/CMSIS/Include;../Lib/ili9341;../Middlewares/LVGL/GUI;../Middlewares/LVGL/GUI/lvgl;../Middlewares/LVGL/GUI/lvgl/src;../Middlewares/LVGL/GUI/lvgl/examples/porting;..\Middlewares\LVGL\GUI_APP\demos;..\Middlewares\LVGL\GUI_APP\demos\stress</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -1428,6 +1428,16 @@
               <FileName>lv_textarea.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Middlewares\LVGL\GUI\lvgl\src\widgets\lv_textarea.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Middlewares/LVGL/GUI_APP</GroupName>
+          <Files>
+            <File>
+              <FileName>lv_demo_stress.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Middlewares\LVGL\GUI_APP\demos\stress\lv_demo_stress.c</FilePath>
             </File>
           </Files>
         </Group>
