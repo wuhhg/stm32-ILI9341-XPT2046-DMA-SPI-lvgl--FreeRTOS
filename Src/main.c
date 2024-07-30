@@ -28,6 +28,9 @@
 #include "ili9341_touch.h"
 #include "fonts.h"
 #include "testimg.h"
+#include "lvgl.h"
+#include "lv_port_indev_template.h"
+#include "lv_port_disp_template.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -77,7 +80,7 @@ void UART_Printf(const char* fmt, ...) {
     char buff[256];
     va_list args;
     va_start(args, fmt);
-    vsnprintf(buff, sizeof(buff), fmt, args);
+    //vsnprintf(buff, sizeof(buff), fmt, args);
     HAL_UART_Transmit(&huart2, (uint8_t*)buff, strlen(buff),
                       HAL_MAX_DELAY);
     va_end(args);
@@ -89,39 +92,14 @@ void init() {
     ILI9341_Init();
 }
 
-void loop() {
-    if(HAL_SPI_DeInit(&hspi1) != HAL_OK) {
-        UART_Printf("HAL_SPI_DeInit failed!\r\n");
-        return;
-    }
-
-    hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
-
-    if(HAL_SPI_Init(&hspi1) != HAL_OK) {
-        UART_Printf("HAL_SPI_Init failed!\r\n");
-        return;
-    }
-
-    ILI9341_FillScreen(ILI9341_BLACK);
-
+void touch() {
     
-    if(HAL_SPI_DeInit(&hspi1) != HAL_OK) {
-        UART_Printf("HAL_SPI_DeInit failed!\r\n");
-        return;
-    }
-
-    hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
-
-    if(HAL_SPI_Init(&hspi1) != HAL_OK) {
-        UART_Printf("HAL_SPI_Init failed!\r\n");
-        return;
-    }
-		
+    ILI9341_FillScreen(ILI9341_BLACK);
+		//ILI9341_WriteString(0,0, "cc",Font_7x10, ILI9341_BLACK,ILI9341_WHITE);
     int npoints = 0;
+		
     while(1/*npoints < 10000*/) {
         uint16_t x, y;
-
-			
         if(ILI9341_TouchGetCoordinates(&x, &y)){
             ILI9341_DrawPixel(x, y, ILI9341_WHITE);
             npoints++;
@@ -136,15 +114,14 @@ void loop() {
 
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 {
-    static unsigned char ledState = 0;
-	 HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
+    
     if (htim == (&htim10))
     {
-        if (ledState == 0)
-            HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_RESET);
-        else
-            HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
-        ledState = !ledState;
+			
+			lv_tick_inc(1);
+				//sprintf(a,"%d",12);
+       HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
+			//ILI9341_WriteString(0,0,a,Font_7x10, ILI9341_BLACK,ILI9341_WHITE);
     }
 }
 
@@ -184,30 +161,41 @@ int main(void)
   MX_USART2_UART_Init();
   MX_SPI2_Init();
   MX_TIM10_Init();
-	HAL_TIM_Base_Start_IT(&htim10);
   /* USER CODE BEGIN 2 */
-
+	HAL_TIM_Base_Start_IT(&htim10);
+//  lv_init();
+//	lv_port_disp_init();
+//	lv_port_indev_init();
+//	//touch();
+//	lv_obj_t* switch_obj = lv_switch_create(lv_scr_act());
+//	lv_obj_set_size(switch_obj, 120, 60);
+//	lv_obj_align(switch_obj, LV_ALIGN_CENTER, 0, 0);
+	init();
+	//ILI9341_FillRectangle(20,20,30,30,ILI9341_BLUE);
+	ILI9341_FillScreen(ILI9341_BLACK);
+	ILI9341_FillRectangle(20, 0, 10, 20, ILI9341_BLUE);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  init();
-	loop();
-//	 hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
-//	 ILI9341_FillScreen(ILI9341_BLACK);
-//	 hspi1.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_128;
+	char a[5];
+	int i=0;
   while (1)
   {
-    //ILI9341_DrawImage((ILI9341_WIDTH - 240) / 2, (ILI9341_HEIGHT - 240) / 2, 240, 240, (const uint16_t*)test_img_240x240);
     /* USER CODE END WHILE */
-
+		
     /* USER CODE BEGIN 3 */
-//				uint16_t x, y;
+		//HAL_Delay(5);
+		//lv_timer_handler();
+		uint16_t x, y;
+		
+    if(ILI9341_TouchPressed()){
+				i++;
+				sprintf(a,"%d",i);
+				ILI9341_WriteString(30,30,a,Font_16x26,ILI9341_BLUE,ILI9341_CYAN);
+        ILI9341_FillRectangle(20, 60, 10, 20, ILI9341_RED);
+    }
 
-//        if(ILI9341_TouchGetCoordinates(&x, &y)) {
-//            ILI9341_DrawPixel(x, 320-y, ILI9341_WHITE);
-//            
-//        } 
   }
   /* USER CODE END 3 */
 }
@@ -319,7 +307,7 @@ static void MX_SPI2_Init(void)
   hspi2.Init.CLKPolarity = SPI_POLARITY_LOW;
   hspi2.Init.CLKPhase = SPI_PHASE_1EDGE;
   hspi2.Init.NSS = SPI_NSS_SOFT;
-  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_2;
+  hspi2.Init.BaudRatePrescaler = SPI_BAUDRATEPRESCALER_64;
   hspi2.Init.FirstBit = SPI_FIRSTBIT_MSB;
   hspi2.Init.TIMode = SPI_TIMODE_DISABLE;
   hspi2.Init.CRCCalculation = SPI_CRCCALCULATION_DISABLE;
@@ -350,9 +338,9 @@ static void MX_TIM10_Init(void)
 
   /* USER CODE END TIM10_Init 1 */
   htim10.Instance = TIM10;
-  htim10.Init.Prescaler = 10000-1;
+  htim10.Init.Prescaler = 1000-1;
   htim10.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim10.Init.Period = 5000-1;
+  htim10.Init.Period = 100-1;
   htim10.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim10.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_ENABLE;
   if (HAL_TIM_Base_Init(&htim10) != HAL_OK)
@@ -441,7 +429,7 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pin : PB4 */
   GPIO_InitStruct.Pin = GPIO_PIN_4;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
-  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Pull = GPIO_PULLUP;
   HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
   /*Configure GPIO pin : PB6 */
