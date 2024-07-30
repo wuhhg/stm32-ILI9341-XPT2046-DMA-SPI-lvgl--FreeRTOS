@@ -1865,9 +1865,9 @@
       <ActiveTab>0</ActiveTab>
       <Doc>
         <Name>../Src/main.c</Name>
-        <ColumnNumber>12</ColumnNumber>
-        <TopLine>182</TopLine>
-        <CurrentLine>193</CurrentLine>
+        <ColumnNumber>0</ColumnNumber>
+        <TopLine>163</TopLine>
+        <CurrentLine>170</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>
@@ -1928,9 +1928,9 @@
       </Doc>
       <Doc>
         <Name>..\Middlewares\LVGL\GUI\lvgl\examples\porting\lv_port_indev_template.h</Name>
-        <ColumnNumber>29</ColumnNumber>
+        <ColumnNumber>0</ColumnNumber>
         <TopLine>1</TopLine>
-        <CurrentLine>11</CurrentLine>
+        <CurrentLine>1</CurrentLine>
         <Folding>1</Folding>
         <ContractedFolders></ContractedFolders>
         <PaneID>0</PaneID>

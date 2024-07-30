@@ -163,38 +163,38 @@ int main(void)
   MX_TIM10_Init();
   /* USER CODE BEGIN 2 */
 	HAL_TIM_Base_Start_IT(&htim10);
-//  lv_init();
-//	lv_port_disp_init();
-//	lv_port_indev_init();
-//	//touch();
-//	lv_obj_t* switch_obj = lv_switch_create(lv_scr_act());
-//	lv_obj_set_size(switch_obj, 120, 60);
-//	lv_obj_align(switch_obj, LV_ALIGN_CENTER, 0, 0);
-	init();
+  lv_init();
+	lv_port_disp_init();
+	lv_port_indev_init();
+	//touch();
+	lv_obj_t* switch_obj = lv_switch_create(lv_scr_act());
+	lv_obj_set_size(switch_obj, 120, 60);
+	lv_obj_align(switch_obj, LV_ALIGN_CENTER, 0, 0);
+	//init();
 	//ILI9341_FillRectangle(20,20,30,30,ILI9341_BLUE);
-	ILI9341_FillScreen(ILI9341_BLACK);
-	ILI9341_FillRectangle(20, 0, 10, 20, ILI9341_BLUE);
+	//ILI9341_FillScreen(ILI9341_BLACK);
+	//ILI9341_FillRectangle(20, 0, 10, 20, ILI9341_BLUE);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	char a[5];
-	int i=0;
+//	char a[5];
+//	int i=0;
   while (1)
   {
     /* USER CODE END WHILE */
 		
     /* USER CODE BEGIN 3 */
-		//HAL_Delay(5);
-		//lv_timer_handler();
-		uint16_t x, y;
-		
-    if(ILI9341_TouchPressed()){
-				i++;
-				sprintf(a,"%d",i);
-				ILI9341_WriteString(30,30,a,Font_16x26,ILI9341_BLUE,ILI9341_CYAN);
-        ILI9341_FillRectangle(20, 60, 10, 20, ILI9341_RED);
-    }
+		HAL_Delay(5);
+		lv_timer_handler();
+//		uint16_t x, y;
+//		
+//    if(ILI9341_TouchPressed()){
+//				i++;
+//				sprintf(a,"%d",i);
+//				ILI9341_WriteString(30,30,a,Font_16x26,ILI9341_BLUE,ILI9341_CYAN);
+//        ILI9341_FillRectangle(20, 60, 10, 20, ILI9341_RED);
+//    }
 
   }
   /* USER CODE END 3 */
