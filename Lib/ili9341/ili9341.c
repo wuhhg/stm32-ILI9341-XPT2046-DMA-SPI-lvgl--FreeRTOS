@@ -1,7 +1,7 @@
 /* vim: set ai et ts=4 sw=4: */
 #include "stm32f4xx_hal.h"
 #include "ili9341.h"
-
+#include "../../lvgl.h"
 static void ILI9341_Select() {
     HAL_GPIO_WritePin(ILI9341_CS_GPIO_Port, ILI9341_CS_Pin, GPIO_PIN_RESET);
 }
@@ -273,6 +273,7 @@ void ILI9341_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint1
 
     ILI9341_Select();
     ILI9341_SetAddressWindow(x, y, x+w-1, y+h-1);
+		
 
     uint8_t data[] = { color >> 8, color & 0xFF };
     HAL_GPIO_WritePin(ILI9341_DC_GPIO_Port, ILI9341_DC_Pin, GPIO_PIN_SET);
@@ -284,7 +285,51 @@ void ILI9341_FillRectangle(uint16_t x, uint16_t y, uint16_t w, uint16_t h, uint1
 
     ILI9341_Unselect();
 }
+void ILI9341_FillRectangle_2(uint16_t x1, uint16_t y1, uint16_t x2, uint16_t y2, lv_color_t * lvcolor) {
+    // clipping
+    if((x1 >= ILI9341_WIDTH) ||(x2 >= ILI9341_WIDTH) ||(y1 >= ILI9341_HEIGHT)|| (y2 >= ILI9341_HEIGHT)) return;
+		
+    ILI9341_Select();
+    ILI9341_SetAddressWindow(x1,y1,x2,y2);
+		uint16_t color;
+    
+    HAL_GPIO_WritePin(ILI9341_DC_GPIO_Port, ILI9341_DC_Pin, GPIO_PIN_SET);
+		int x,y;
+    for(y = y2-y1; y > 0; y--) {
+        for(x = x2-x1; x > 0; x--) {
+					color=lvcolor->full;
+					uint8_t data[] = { color >> 8, color & 0xFF };
+					ILI9341_WriteData(data, sizeof(data));
+          //HAL_SPI_Transmit(&ILI9341_SPI_PORT, data, sizeof(data), HAL_MAX_DELAY);
+					lvcolor++;
+        }
+    }
 
+    ILI9341_Unselect();
+}
+void ILI9341_FillRectangle_3(uint16_t x, uint16_t y, uint16_t w, uint16_t h, lv_color_t * lvcolor) {
+    // clipping
+    if((x >= ILI9341_WIDTH) || (y >= ILI9341_HEIGHT)) return;
+    if((x + w - 1) >= ILI9341_WIDTH) w = ILI9341_WIDTH - x;
+    if((y + h - 1) >= ILI9341_HEIGHT) h = ILI9341_HEIGHT - y;
+
+    ILI9341_Select();
+    ILI9341_SetAddressWindow(x, y, x+w-1, y+h-1);
+		
+
+    HAL_GPIO_WritePin(ILI9341_DC_GPIO_Port, ILI9341_DC_Pin, GPIO_PIN_SET);
+    for(y = h; y > 0; y--) {
+        for(x = w; x > 0; x--) {
+					uint16_t color=lvcolor->full;
+					uint8_t data[] = { color >> 8, color & 0xFF };
+					
+          HAL_SPI_Transmit(&ILI9341_SPI_PORT, data, sizeof(data), HAL_MAX_DELAY);
+					lvcolor++;
+        }
+    }
+
+    ILI9341_Unselect();
+}
 void ILI9341_FillScreen(uint16_t color) {
     ILI9341_FillRectangle(0, 0, ILI9341_WIDTH, ILI9341_HEIGHT, color);
 }

@@ -145,13 +145,15 @@ static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_colo
 	int32_t x, y;
     /*It's a very slow but simple implementation.
      *`set_pixel` needs to be written by you to a set pixel on the screen*/
-    for(y = area->y1; y <= area->y2; y++) {
-        for(x = area->x1; x <= area->x2; x++) {
-					ILI9341_DrawPixel(x, y, color_p->full);
-            //set_pixel(x, y, *color_p);  // 由于color_p 是结构体类型, 很容易误将其当成结构体然后用拼接的方法， 但实际不能将RGB拼起来
-            color_p++;
-        }
-    }
+		//ILI9341_FillRectangle_2(area->x1,area->y1,area->x2,area->y2,color_p);
+		ILI9341_FillRectangle_3(area->x1,area->y1,area->x2-area->x1+1,area->y2-area->y1+1,color_p);
+//    for(y = area->y1; y <= area->y2; y++) {
+//        for(x = area->x1; x <= area->x2; x++) {
+//					ILI9341_DrawPixel(x, y, color_p->full);
+//            //set_pixel(x, y, *color_p);  // 由于color_p 是结构体类型, 很容易误将其当成结构体然后用拼接的方法， 但实际不能将RGB拼起来
+//            color_p++;
+//        }
+//    }
 
     /*IMPORTANT!!!
      *Inform the graphics library that you are ready with the flushing*/

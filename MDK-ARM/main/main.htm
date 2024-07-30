@@ -3,7 +3,7 @@
 <title>Static Call Graph - [main\main.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image main\main.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Wed Jul 31 00:40:31 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6160001: Last Updated: Wed Jul 31 01:33:59 2024
 <BR><P>
 <H3>Maximum Stack Usage =       1064 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -790,14 +790,14 @@ Global Symbols
 <P><STRONG><a name="[217]"></a>strcmp</STRONG> (Thumb, 124 bytes, Stack size 8 bytes, strcmpv7em.o(.text))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = strcmp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
-<LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_get_btn_text
+<BR>[Called By]<UL><LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_get_btn_text
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_decoder_built_in_open
 <LI><a href="#[46]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_decoder_built_in_info
 <LI><a href="#[283]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_textarea_del_char
 <LI><a href="#[27e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_textarea_add_text
 <LI><a href="#[27f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_textarea_add_char
 <LI><a href="#[70]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_keyboard_def_event_cb
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_event
 </UL>
 
@@ -886,7 +886,7 @@ Global Symbols
 <LI><a href="#[12a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_TouchUnselect
 <LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_TouchGetCoordinates
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Init
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_DrawPixel
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_FillRectangle_3
 </UL>
 
 <P><STRONG><a name="[102]"></a>HAL_GetTick</STRONG> (Thumb, 12 bytes, Stack size 0 bytes, stm32f4xx_hal.o(.text.HAL_GetTick))
@@ -1001,7 +1001,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[127]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_TouchGetCoordinates
 <LI><a href="#[126]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_Init
-<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_DrawPixel
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_FillRectangle_3
 </UL>
 
 <P><STRONG><a name="[112]"></a>HAL_SPI_TransmitReceive</STRONG> (Thumb, 650 bytes, Stack size 40 bytes, stm32f4xx_hal_spi.o(.text.HAL_SPI_TransmitReceive))
@@ -1103,8 +1103,8 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 </UL>
 
-<P><STRONG><a name="[124]"></a>ILI9341_DrawPixel</STRONG> (Thumb, 308 bytes, Stack size 48 bytes, ili9341.o(.text.ILI9341_DrawPixel))
-<BR><BR>[Stack]<UL><LI>Max Depth = 128<LI>Call Chain = ILI9341_DrawPixel &rArr; HAL_SPI_Transmit &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[124]"></a>ILI9341_FillRectangle_3</STRONG> (Thumb, 402 bytes, Stack size 56 bytes, ili9341.o(.text.ILI9341_FillRectangle_3))
+<BR><BR>[Stack]<UL><LI>Max Depth = 136<LI>Call Chain = ILI9341_FillRectangle_3 &rArr; HAL_SPI_Transmit &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
 <BR>[Calls]<UL><LI><a href="#[110]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_SPI_Transmit
 <LI><a href="#[125]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -1962,9 +1962,9 @@ Global Symbols
 <P><STRONG><a name="[142]"></a>lv_area_set</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, lv_area.o(.text.lv_area_set))
 <BR><BR>[Called By]<UL><LI><a href="#[2a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_scrollbar_area
 <LI><a href="#[15a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_indev_scroll_handler
-<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_disp_refr_timer
 <LI><a href="#[13f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_refr_area_part
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[97]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_arc_event
 </UL>
 
@@ -2158,18 +2158,18 @@ Global Symbols
 
 <P><STRONG><a name="[222]"></a>lv_calendar_set_showed_date</STRONG> (Thumb, 778 bytes, Stack size 48 bytes, lv_calendar.o(.text.lv_calendar_set_showed_date))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272 + Unknown Stack Size
-<LI>Call Chain = lv_calendar_set_showed_date &rArr; highlight_update &rArr; lv_btnmatrix_set_btn_ctrl &rArr; invalidate_button_area &rArr; lv_obj_invalidate_area &rArr; _lv_inv_area &rArr; _lv_area_is_in &rArr; _lv_area_is_point_on
+<LI>Call Chain = lv_calendar_set_showed_date &rArr; highlight_update &rArr; lv_btnmatrix_clear_btn_ctrl_all &rArr; invalidate_button_area &rArr; lv_obj_invalidate_area &rArr; _lv_inv_area &rArr; _lv_area_is_in &rArr; _lv_area_is_point_on
 </UL>
 <BR>[Calls]<UL><LI><a href="#[18a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_invalidate
 <LI><a href="#[1cc]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_child_cnt
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_send
-<LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_get_selected_btn
 <LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl_all
 <LI><a href="#[1df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;highlight_update
 <LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_child
 <LI><a href="#[1c7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_snprintf
 <LI><a href="#[21d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_selected_btn
+<LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_calendar_constructor
 <LI><a href="#[8d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;year_event_cb
@@ -3753,7 +3753,6 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_get_target
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_send
-<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_get_selected_btn
 <LI><a href="#[219]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_get_btn_text
 <LI><a href="#[286]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_textarea_set_cursor_pos
@@ -3766,6 +3765,7 @@ Global Symbols
 <LI><a href="#[27e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_textarea_add_text
 <LI><a href="#[27f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_textarea_add_char
 <LI><a href="#[21b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_ctrl_map
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[217]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;strcmp
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> lv_keyboard.o(.text.lv_keyboard_constructor)
@@ -3994,7 +3994,6 @@ Global Symbols
 <LI><a href="#[158]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_ll_ins_head
 <LI><a href="#[267]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_allocate_spec_attr
 <LI><a href="#[22e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_disp_drv_register
-<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_set_src
 <LI><a href="#[231]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_theme_default_init
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_decoder_built_in_open
@@ -4006,6 +4005,7 @@ Global Symbols
 <LI><a href="#[1f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_label_set_text
 <LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_keyboard_update_ctrl_map
 <LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_dropdown_set_options
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[288]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_label_refr_text
 <LI><a href="#[17f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_txt_set_text_vfmt
 <LI><a href="#[d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_table_constructor
@@ -4084,7 +4084,6 @@ Global Symbols
 <LI><a href="#[26a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_group_remove_obj
 <LI><a href="#[16d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_ll_clear
 <LI><a href="#[1f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_anim_del
-<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_set_src
 <LI><a href="#[47]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_decoder_built_in_open
 <LI><a href="#[49]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_decoder_built_in_close
@@ -4104,6 +4103,7 @@ Global Symbols
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_destructor
 <LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_dropdown_set_options
 <LI><a href="#[291]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_label_set_text_fmt
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[287]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_label_revert_dots
 <LI><a href="#[288]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_label_refr_text
 <LI><a href="#[b7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_label_destructor
@@ -4214,7 +4214,6 @@ Global Symbols
 <LI><a href="#[22e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_disp_drv_register
 <LI><a href="#[22d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_disp_drv_init
 <LI><a href="#[22c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_disp_draw_buf_init
-<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_calendar_constructor
 <LI><a href="#[319]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_style_transition_dsc_init
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;grid_update
@@ -4241,6 +4240,7 @@ Global Symbols
 <LI><a href="#[148]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_draw_mask_cleanup
 <LI><a href="#[5e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_lv_disp_refr_timer
 <LI><a href="#[2e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_spinbox_updatevalue
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 </UL>
 
 <P><STRONG><a name="[1b4]"></a>lv_memset_ff</STRONG> (Thumb, 132 bytes, Stack size 24 bytes, lv_mem.o(.text.lv_memset_ff))
@@ -4691,8 +4691,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 </UL>
-<BR>[Called By]<UL><LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;grid_update
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;grid_update
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tileview_event_cb
 <LI><a href="#[de]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_tileview_tile_constructor
@@ -4701,6 +4700,7 @@ Global Symbols
 <LI><a href="#[228]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_get_point_pos_by_id
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_event
 <LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_y_ticks
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[2e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refr_position
 <LI><a href="#[1e9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;inf_normalize
 <LI><a href="#[249]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;position_to_selected
@@ -4712,8 +4712,7 @@ Global Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 </UL>
-<BR>[Called By]<UL><LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
-<LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;grid_update
+<BR>[Called By]<UL><LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;grid_update
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
 <LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
 <LI><a href="#[89]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;tileview_event_cb
@@ -4725,6 +4724,7 @@ Global Symbols
 <LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_chart_event
 <LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invalidate_point
 <LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_x_ticks
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[2e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;refr_position
 <LI><a href="#[28c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_label_get_letter_pos
 <LI><a href="#[b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_label_event
@@ -5097,7 +5097,6 @@ Global Symbols
 <LI><a href="#[165]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_snap_point_y
 <LI><a href="#[168]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;find_snap_point_x
 <LI><a href="#[15d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;elastic_diff
-<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_set_src
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;grid_update
 <LI><a href="#[6b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;flex_update
@@ -5114,6 +5113,7 @@ Global Symbols
 <LI><a href="#[1f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invalidate_point
 <LI><a href="#[1c8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_y_ticks
 <LI><a href="#[1c1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;draw_x_ticks
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_switch_event
 <LI><a href="#[2e6]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;position_knob
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_slider_event
@@ -5374,7 +5374,6 @@ Global Symbols
 <LI><a href="#[265]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_group_focus_next
 <LI><a href="#[248]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_del
 <LI><a href="#[22e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_disp_drv_register
-<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_set_src
 <LI><a href="#[6e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;grid_update
 <LI><a href="#[194]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;children_repos
@@ -5393,6 +5392,7 @@ Global Symbols
 <LI><a href="#[255]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_dropdown_set_options
 <LI><a href="#[291]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_label_set_text_fmt
 <LI><a href="#[222]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_calendar_set_showed_date
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[d3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_switch_event
 <LI><a href="#[82]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_switch_anim_ready
 <LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_switch_anim_exec_cb
@@ -5588,11 +5588,11 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[2a8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_refresh_style
 <LI><a href="#[2a5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_state
+<LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl_all
+<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_set_src
 <LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl_all
 <LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
-<LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl_all
-<LI><a href="#[26f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_img_set_src
 <LI><a href="#[cd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_slider_event
 <LI><a href="#[ca]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_roller_event
 <LI><a href="#[c9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_roller_constructor
@@ -5868,8 +5868,7 @@ Global Symbols
 <LI><a href="#[16e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_mem_alloc
 <LI><a href="#[1da]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_mem_realloc
 </UL>
-<BR>[Called By]<UL><LI><a href="#[2d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_bg_img_src
-<LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_base_dir
+<BR>[Called By]<UL><LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_base_dir
 <LI><a href="#[2d0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_y
 <LI><a href="#[2cf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_x
 <LI><a href="#[2d4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_width
@@ -5881,6 +5880,7 @@ Global Symbols
 <LI><a href="#[2a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_flex_align
 <LI><a href="#[2d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_text_align
 <LI><a href="#[2d8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_min_width
+<LI><a href="#[2d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_bg_img_src
 </UL>
 
 <P><STRONG><a name="[24c]"></a>lv_obj_set_parent</STRONG> (Thumb, 266 bytes, Stack size 24 bytes, lv_obj_tree.o(.text.lv_obj_set_parent))
@@ -6710,8 +6710,8 @@ Global Symbols
 <LI><a href="#[195]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_content_width
 <LI><a href="#[2b8]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_scroll_to_x
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
-<LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 <LI><a href="#[196]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_child
+<LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 </UL>
 <BR>[Called By]<UL><LI><a href="#[d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_tabview_event
 <LI><a href="#[84]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;cont_scroll_end_event_cb
@@ -7226,11 +7226,11 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[121]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_UART_Init
 </UL>
 
-<P><STRONG><a name="[7a]"></a>disp_flush</STRONG> (Thumb, 86 bytes, Stack size 24 bytes, lv_port_disp_template.o(.text.disp_flush))
-<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = disp_flush &rArr; ILI9341_DrawPixel &rArr; HAL_SPI_Transmit &rArr; SPI_WaitFlagStateUntilTimeout
+<P><STRONG><a name="[7a]"></a>disp_flush</STRONG> (Thumb, 54 bytes, Stack size 24 bytes, lv_port_disp_template.o(.text.disp_flush))
+<BR><BR>[Stack]<UL><LI>Max Depth = 160<LI>Call Chain = disp_flush &rArr; ILI9341_FillRectangle_3 &rArr; HAL_SPI_Transmit &rArr; SPI_WaitFlagStateUntilTimeout
 </UL>
-<BR>[Calls]<UL><LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_DrawPixel
-<LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_disp_flush_ready
+<BR>[Calls]<UL><LI><a href="#[19d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_disp_flush_ready
+<LI><a href="#[124]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;ILI9341_FillRectangle_3
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> lv_port_disp_template.o(.text.lv_port_disp_init)
 </UL>
@@ -7949,19 +7949,19 @@ Local Symbols
 </UL>
 <BR>[Calls]<UL><LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_get_target
 <LI><a href="#[1bd]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_get_param
-<LI><a href="#[1be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_has_btn_ctrl
 <LI><a href="#[192]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_get_selected_btn
 <LI><a href="#[1c0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_theme_get_color_primary
 <LI><a href="#[1bf]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_palette_main
+<LI><a href="#[1be]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_has_btn_ctrl
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> lv_calendar.o(.text.lv_calendar_constructor)
 </UL>
 <P><STRONG><a name="[1df]"></a>highlight_update</STRONG> (Thumb, 232 bytes, Stack size 24 bytes, lv_calendar.o(.text.highlight_update))
 <BR><BR>[Stack]<UL><LI>Max Depth = 224 + Unknown Stack Size
-<LI>Call Chain = highlight_update &rArr; lv_btnmatrix_set_btn_ctrl &rArr; invalidate_button_area &rArr; lv_obj_invalidate_area &rArr; _lv_inv_area &rArr; _lv_area_is_in &rArr; _lv_area_is_point_on
+<LI>Call Chain = highlight_update &rArr; lv_btnmatrix_clear_btn_ctrl_all &rArr; invalidate_button_area &rArr; lv_obj_invalidate_area &rArr; _lv_inv_area &rArr; _lv_area_is_in &rArr; _lv_area_is_point_on
 </UL>
-<BR>[Calls]<UL><LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
-<LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl_all
+<BR>[Calls]<UL><LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl_all
+<LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 </UL>
 <BR>[Called By]<UL><LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_calendar_constructor
 <LI><a href="#[222]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_calendar_set_showed_date
@@ -7969,19 +7969,19 @@ Local Symbols
 
 <P><STRONG><a name="[9f]"></a>lv_calendar_constructor</STRONG> (Thumb, 236 bytes, Stack size 24 bytes, lv_calendar.o(.text.lv_calendar_constructor))
 <BR><BR>[Stack]<UL><LI>Max Depth = 296 + Unknown Stack Size
-<LI>Call Chain = lv_calendar_constructor &rArr; lv_calendar_set_showed_date &rArr; highlight_update &rArr; lv_btnmatrix_set_btn_ctrl &rArr; invalidate_button_area &rArr; lv_obj_invalidate_area &rArr; _lv_inv_area &rArr; _lv_area_is_in &rArr; _lv_area_is_point_on
+<LI>Call Chain = lv_calendar_constructor &rArr; lv_calendar_set_showed_date &rArr; highlight_update &rArr; lv_btnmatrix_clear_btn_ctrl_all &rArr; invalidate_button_area &rArr; lv_obj_invalidate_area &rArr; _lv_inv_area &rArr; _lv_area_is_in &rArr; _lv_area_is_point_on
 </UL>
 <BR>[Calls]<UL><LI><a href="#[21f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_width
 <LI><a href="#[144]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_memset_00
 <LI><a href="#[18d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_add_flag
 <LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_add_event_cb
-<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
-<LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl_all
 <LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_create
 <LI><a href="#[1df]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;highlight_update
 <LI><a href="#[221]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_flex_grow
 <LI><a href="#[220]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_flex_flow
 <LI><a href="#[222]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_calendar_set_showed_date
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
+<LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl_all
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> lv_calendar.o(.rodata.lv_calendar_class)
 </UL>
@@ -8003,7 +8003,6 @@ Local Symbols
 <LI>Call Chain = my_constructor &rArr; lv_label_set_long_mode &rArr; lv_label_refr_text &rArr; lv_label_get_letter_on &rArr; _lv_txt_get_next_line &rArr; lv_font_get_glyph_width
 </UL>
 <BR>[Calls]<UL><LI><a href="#[29f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_size
-<LI><a href="#[2d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_bg_img_src
 <LI><a href="#[13b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_update_layout
 <LI><a href="#[21f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_width
 <LI><a href="#[24f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_height
@@ -8016,6 +8015,7 @@ Local Symbols
 <LI><a href="#[2a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_flex_align
 <LI><a href="#[24d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_move_to_index
 <LI><a href="#[2d9]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_text_align
+<LI><a href="#[2d7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_bg_img_src
 <LI><a href="#[290]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_label_set_long_mode
 <LI><a href="#[258]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_label_create
 <LI><a href="#[20f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btn_create
@@ -8036,7 +8036,7 @@ Local Symbols
 </UL>
 <P><STRONG><a name="[8e]"></a>month_event_cb</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, lv_calendar_header_dropdown.o(.text.month_event_cb))
 <BR><BR>[Stack]<UL><LI>Max Depth = 288 + Unknown Stack Size
-<LI>Call Chain = month_event_cb &rArr; lv_calendar_set_showed_date &rArr; highlight_update &rArr; lv_btnmatrix_set_btn_ctrl &rArr; invalidate_button_area &rArr; lv_obj_invalidate_area &rArr; _lv_inv_area &rArr; _lv_area_is_in &rArr; _lv_area_is_point_on
+<LI>Call Chain = month_event_cb &rArr; lv_calendar_set_showed_date &rArr; highlight_update &rArr; lv_btnmatrix_clear_btn_ctrl_all &rArr; invalidate_button_area &rArr; lv_obj_invalidate_area &rArr; _lv_inv_area &rArr; _lv_area_is_in &rArr; _lv_area_is_point_on
 </UL>
 <BR>[Calls]<UL><LI><a href="#[29c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_get_user_data
 <LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_get_target
@@ -8074,7 +8074,7 @@ Local Symbols
 </UL>
 <P><STRONG><a name="[8d]"></a>year_event_cb</STRONG> (Thumb, 54 bytes, Stack size 16 bytes, lv_calendar_header_dropdown.o(.text.year_event_cb))
 <BR><BR>[Stack]<UL><LI>Max Depth = 288 + Unknown Stack Size
-<LI>Call Chain = year_event_cb &rArr; lv_calendar_set_showed_date &rArr; highlight_update &rArr; lv_btnmatrix_set_btn_ctrl &rArr; invalidate_button_area &rArr; lv_obj_invalidate_area &rArr; _lv_inv_area &rArr; _lv_area_is_in &rArr; _lv_area_is_point_on
+<LI>Call Chain = year_event_cb &rArr; lv_calendar_set_showed_date &rArr; highlight_update &rArr; lv_btnmatrix_clear_btn_ctrl_all &rArr; invalidate_button_area &rArr; lv_obj_invalidate_area &rArr; _lv_inv_area &rArr; _lv_area_is_in &rArr; _lv_area_is_point_on
 </UL>
 <BR>[Calls]<UL><LI><a href="#[29c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_get_user_data
 <LI><a href="#[191]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_get_target
@@ -8265,8 +8265,8 @@ Local Symbols
 <LI><a href="#[27c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_style_base_dir
 <LI><a href="#[1fb]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_clear_flag
 <LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_add_event_cb
-<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[27d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_keyboard_update_ctrl_map
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> lv_keyboard.o(.rodata.lv_keyboard_class)
 </UL>
@@ -8586,11 +8586,11 @@ Local Symbols
 <LI><a href="#[2af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_group_get_default
 <LI><a href="#[264]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_group_add_obj
 <LI><a href="#[21e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_add_event_cb
-<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[214]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_create
 <LI><a href="#[221]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_flex_grow
 <LI><a href="#[220]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_set_flex_flow
 <LI><a href="#[21c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_one_checked
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 </UL>
 <BR>[Address Reference Count : 1]<UL><LI> lv_tabview.o(.rodata.lv_tabview_class)
 </UL>
@@ -8994,10 +8994,10 @@ Local Symbols
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_style_prop
 <LI><a href="#[1f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_obj_get_disp
 </UL>
-<BR>[Called By]<UL><LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl_all
-<LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
-<LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl_all
+<BR>[Called By]<UL><LI><a href="#[1e0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_clear_btn_ctrl_all
 <LI><a href="#[21d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_selected_btn
+<LI><a href="#[21a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl_all
+<LI><a href="#[1e1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_btn_ctrl
 <LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;make_one_button_checked
 <LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_event
 </UL>
@@ -9043,10 +9043,10 @@ Local Symbols
 <LI><a href="#[202]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_get_draw_ctx
 <LI><a href="#[199]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_get_code
 <LI><a href="#[169]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_event_send
-<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[1ad]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_txt_get_size
 <LI><a href="#[1ae]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_label_dsc_init
 <LI><a href="#[1af]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_draw_label
+<LI><a href="#[213]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;lv_btnmatrix_set_map
 <LI><a href="#[218]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;make_one_button_checked
 <LI><a href="#[1ef]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;invalidate_button_area
 <LI><a href="#[1d2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_button_from_point

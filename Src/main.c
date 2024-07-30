@@ -171,7 +171,7 @@ int main(void)
 	lv_obj_set_size(switch_obj, 120, 60);
 	lv_obj_align(switch_obj, LV_ALIGN_CENTER, 0, 0);
 	//init();
-	//ILI9341_FillRectangle(20,20,30,30,ILI9341_BLUE);
+	//ILI9341_FillRectangle(20,20,1,1,ILI9341_BLUE);
 	//ILI9341_FillScreen(ILI9341_BLACK);
 	//ILI9341_FillRectangle(20, 0, 10, 20, ILI9341_BLUE);
   /* USER CODE END 2 */
