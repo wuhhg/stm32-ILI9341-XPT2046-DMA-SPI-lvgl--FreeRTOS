@@ -96,8 +96,11 @@ bool ILI9341_TouchGetCoordinates(uint16_t* x, uint16_t* y) {
 		//ILI9341_TouchUnselect();
 		//ILI9341_Select();
 		
-    *x = (raw_x - ILI9341_TOUCH_MIN_RAW_X) * ILI9341_TOUCH_SCALE_X / (ILI9341_TOUCH_MAX_RAW_X - ILI9341_TOUCH_MIN_RAW_X);
-    *y = (raw_y - ILI9341_TOUCH_MIN_RAW_Y) * ILI9341_TOUCH_SCALE_Y / (ILI9341_TOUCH_MAX_RAW_Y - ILI9341_TOUCH_MIN_RAW_Y);
+    uint16_t xt = (raw_x - ILI9341_TOUCH_MIN_RAW_X) * ILI9341_TOUCH_SCALE_X / (ILI9341_TOUCH_MAX_RAW_X - ILI9341_TOUCH_MIN_RAW_X);
+    uint16_t yt = (raw_y - ILI9341_TOUCH_MIN_RAW_Y) * ILI9341_TOUCH_SCALE_Y / (ILI9341_TOUCH_MAX_RAW_Y - ILI9341_TOUCH_MIN_RAW_Y);
+		*x=320-yt;
+		*y=xt;
+		
 		//char a[200];
 		//sprintf(a,"%d %d",raw_x1,raw_x1);
 		//ILI9341_WriteString(0,0,a,Font_7x10, ILI9341_BLACK,ILI9341_WHITE);

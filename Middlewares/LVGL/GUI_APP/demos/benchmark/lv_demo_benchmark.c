@@ -8,7 +8,7 @@
  *********************/
 #include "lv_demo_benchmark.h"
 
-#if LV_USE_DEMO_BENCHMARK
+#if 1
 
 /*********************
  *      DEFINES

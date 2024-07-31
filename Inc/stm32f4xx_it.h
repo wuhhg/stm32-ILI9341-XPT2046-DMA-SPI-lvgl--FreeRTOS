@@ -48,6 +48,8 @@
 /* Exported functions prototypes ---------------------------------------------*/
 void SysTick_Handler(void);
 void TIM1_UP_TIM10_IRQHandler(void);
+void DMA2_Stream0_IRQHandler(void);
+void DMA2_Stream3_IRQHandler(void);
 /* USER CODE BEGIN EFP */
 
 /* USER CODE END EFP */

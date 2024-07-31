@@ -31,7 +31,7 @@
 #include "lvgl.h"
 #include "lv_port_indev_template.h"
 #include "lv_port_disp_template.h"
-#include "lv_demo_stress.h"
+#include "lv_demo_benchmark.h"
 
 /* USER CODE END Includes */
 
@@ -53,6 +53,8 @@
 /* Private variables ---------------------------------------------------------*/
 SPI_HandleTypeDef hspi1;
 SPI_HandleTypeDef hspi2;
+DMA_HandleTypeDef hdma_spi1_tx;
+DMA_HandleTypeDef hdma_spi1_rx;
 
 TIM_HandleTypeDef htim10;
 
@@ -66,6 +68,7 @@ UART_HandleTypeDef huart2;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USART2_UART_Init(void);
 static void MX_SPI2_Init(void);
@@ -159,6 +162,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_SPI1_Init();
   MX_USART2_UART_Init();
   MX_SPI2_Init();
@@ -168,25 +172,19 @@ int main(void)
   lv_init();
 	lv_port_disp_init();
 	lv_port_indev_init();
-	lv_demo_stress();
-	//touch();
-//	lv_obj_t* switch_obj = lv_switch_create(lv_scr_act());
-//	lv_obj_set_size(switch_obj, 120, 60);
-//	lv_obj_align(switch_obj, LV_ALIGN_CENTER, 0, 0);
+	lv_demo_benchmark();
+	//lv_demo_stress();
 	//init();
-	//ILI9341_FillRectangle(20,20,1,1,ILI9341_BLUE);
-	//ILI9341_FillScreen(ILI9341_BLACK);
-	//ILI9341_FillRectangle(20, 0, 10, 20, ILI9341_BLUE);
+	//touch();
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-//	char a[5];
-//	int i=0;
   while (1)
   {
     /* USER CODE END WHILE */
-		
+
     /* USER CODE BEGIN 3 */
 		HAL_Delay(5);
 		lv_timer_handler();
@@ -386,6 +384,25 @@ static void MX_USART2_UART_Init(void)
   /* USER CODE BEGIN USART2_Init 2 */
 
   /* USER CODE END USART2_Init 2 */
+
+}
+
+/**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA2_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA2_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream0_IRQn);
+  /* DMA2_Stream3_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA2_Stream3_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA2_Stream3_IRQn);
 
 }
 

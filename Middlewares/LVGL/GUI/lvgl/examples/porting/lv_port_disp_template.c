@@ -12,7 +12,7 @@
 #include "lv_port_disp_template.h"
 #include "../../lvgl.h"
 #include "ili9341.h"
-#define MY_DISP_HOR_RES 240
+#define MY_DISP_HOR_RES 320
 /*********************
  *      DEFINES
  *********************/
@@ -25,7 +25,7 @@
  *  STATIC PROTOTYPES
  **********************/
 static void disp_init(void);
-
+static lv_disp_drv_t disp_drv;
 static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t * color_p);
 //static void gpu_fill(lv_disp_drv_t * disp_drv, lv_color_t * dest_buf, lv_coord_t dest_width,
 //        const lv_area_t * fill_area, lv_color_t color);
@@ -76,8 +76,8 @@ void lv_port_disp_init(void)
 
     /* Example for 1) */
     static lv_disp_draw_buf_t draw_buf_dsc_1;
-    static lv_color_t buf_1[MY_DISP_HOR_RES * 10];                          /*A buffer for 10 rows*/
-    lv_disp_draw_buf_init(&draw_buf_dsc_1, buf_1, NULL, MY_DISP_HOR_RES * 10);   /*Initialize the display buffer*/
+    static lv_color_t buf_1[MY_DISP_HOR_RES * 30];                          /*A buffer for 10 rows*/
+    lv_disp_draw_buf_init(&draw_buf_dsc_1, buf_1, NULL, MY_DISP_HOR_RES * 30);   /*Initialize the display buffer*/
 
     /* Example for 2) */
 //    static lv_disp_draw_buf_t draw_buf_dsc_2;
@@ -101,8 +101,8 @@ void lv_port_disp_init(void)
     /*Set up the functions to access to your display*/
 
     /*Set the resolution of the display*/
-    disp_drv.hor_res = 240;
-    disp_drv.ver_res = 320;
+    disp_drv.hor_res = 320;
+    disp_drv.ver_res = 240;
 
     /*Used to copy the buffer's content to the display*/
     disp_drv.flush_cb = disp_flush;
@@ -142,11 +142,28 @@ static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_colo
 		
     //ILI9341_FillRectangle(area->x1, area->y1, area->x2-area->x1, area->y2-area->y1+1,color_p->full);
 		
-	int32_t x, y;
     /*It's a very slow but simple implementation.
      *`set_pixel` needs to be written by you to a set pixel on the screen*/
 		//ILI9341_FillRectangle_2(area->x1,area->y1,area->x2,area->y2,color_p);
-		ILI9341_FillRectangle_3(area->x1,area->y1,area->x2-area->x1+1,area->y2-area->y1+1,color_p);
+	
+	int32_t x=area->x2-area->x1;
+  int32_t y=area->y2-area->y1;
+	int32_t num= (x+1) * (y+1) * 2;
+	ILI9341_Select();
+	ILI9341_SetAddressWindow(area->x1,area->y1,area->x2,area->y2);
+	HAL_GPIO_WritePin(ILI9341_DC_GPIO_Port, ILI9341_DC_Pin, GPIO_PIN_SET);
+	//ILI9341_Unselect();
+	HAL_SPI_Transmit_DMA(&hspi1,(uint16_t *)color_p, num);
+	//HAL_SPI_Transmit_DMA(&hspi1,(uint8_t *)color_p->full, num);
+	while(HAL_SPI_GetState(&hspi1)!=HAL_SPI_STATE_READY);
+	
+		ILI9341_Unselect();
+		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
+		//ILI9341_Select();
+		lv_disp_flush_ready(disp_drv);
+		HAL_SPI_DMAStop(&hspi1);
+		//ILI9341_FillRectangle_3(area->x1,area->y1,area->x2-area->x1+1,area->y2-area->y1+1,color_p);
+	
 //    for(y = area->y1; y <= area->y2; y++) {
 //        for(x = area->x1; x <= area->x2; x++) {
 //					ILI9341_DrawPixel(x, y, color_p->full);
@@ -157,7 +174,19 @@ static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_colo
 
     /*IMPORTANT!!!
      *Inform the graphics library that you are ready with the flushing*/
-    lv_disp_flush_ready(disp_drv);
+    //lv_disp_flush_ready(disp_drv);
+}
+void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
+{
+	if(hspi->Instance==SPI1)
+	{
+		ILI9341_Unselect();
+		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
+		//ILI9341_Select();
+		lv_disp_flush_ready(&disp_drv);
+		HAL_SPI_DMAStop(&hspi1);
+		
+	}
 }
 
 /*OPTIONAL: GPU INTERFACE*/

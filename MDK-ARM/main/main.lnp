@@ -191,7 +191,15 @@
 "main\lv_switch.o"
 "main\lv_table.o"
 "main\lv_textarea.o"
-"main\lv_demo_stress.o"
+"main\lv_demo_benchmark.o"
+"main\img_benchmark_cogwheel_alpha16.o"
+"main\img_benchmark_cogwheel_argb.o"
+"main\img_benchmark_cogwheel_chroma_keyed.o"
+"main\img_benchmark_cogwheel_indexed16.o"
+"main\img_benchmark_cogwheel_rgb.o"
+"main\lv_font_bechmark_montserrat_12_compr_az.c.o"
+"main\lv_font_bechmark_montserrat_16_compr_az.c.o"
+"main\lv_font_bechmark_montserrat_28_compr_az.c.o"
 --strict --scatter "main\main.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

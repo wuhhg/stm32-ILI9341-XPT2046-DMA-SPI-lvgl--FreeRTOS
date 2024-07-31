@@ -2,7 +2,7 @@
 #include "stm32f4xx_hal.h"
 #include "ili9341.h"
 #include "../../lvgl.h"
-static void ILI9341_Select() {
+void ILI9341_Select() {
     HAL_GPIO_WritePin(ILI9341_CS_GPIO_Port, ILI9341_CS_Pin, GPIO_PIN_RESET);
 }
 
@@ -33,7 +33,7 @@ static void ILI9341_WriteData(uint8_t* buff, size_t buff_size) {
     }
 }
 
-static void ILI9341_SetAddressWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
+void ILI9341_SetAddressWindow(uint16_t x0, uint16_t y0, uint16_t x1, uint16_t y1) {
     // column address set
     ILI9341_WriteCommand(0x2A); // CASET
     {
@@ -203,7 +203,12 @@ void ILI9341_Init() {
         uint8_t data[] = { ILI9341_ROTATION };
         ILI9341_WriteData(data, sizeof(data));
     }
-
+		ILI9341_WriteCommand(0x51);
+    {
+        uint8_t data[] = { 0xFF };
+        ILI9341_WriteData(data, sizeof(data));
+    }
+		
     ILI9341_Unselect();
 }
 
@@ -318,9 +323,9 @@ void ILI9341_FillRectangle_3(uint16_t x, uint16_t y, uint16_t w, uint16_t h, lv_
     for(y = h; y > 0; y--) {
         for(x = w; x > 0; x--) {
 					uint16_t color=lvcolor->full;
-					uint8_t data[] = { color >> 8, color & 0xFF };
-					
-          HAL_SPI_Transmit(&ILI9341_SPI_PORT, data, sizeof(data), HAL_MAX_DELAY);
+					uint8_t data[] = { color >> 8, color};
+					//HAL_SPI_Transmit(&ILI9341_SPI_PORT,(uint8_t*)(&color), 2, HAL_MAX_DELAY);
+					HAL_SPI_Transmit(&ILI9341_SPI_PORT,data, 2, HAL_MAX_DELAY);
 					lvcolor++;
         }
     }
