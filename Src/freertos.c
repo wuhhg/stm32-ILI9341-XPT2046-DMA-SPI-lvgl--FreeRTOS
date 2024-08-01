@@ -62,6 +62,11 @@ const osThreadAttr_t lvgl_task_attributes = {
   .stack_size = 512 * 4,
   .priority = (osPriority_t) osPriorityNormal,
 };
+/* Definitions for lv_timer_handler_mutex */
+osMutexId_t lv_timer_handler_mutexHandle;
+const osMutexAttr_t lv_timer_handler_mutex_attributes = {
+  .name = "lv_timer_handler_mutex"
+};
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -97,6 +102,9 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
+  /* Create the mutex(es) */
+  /* creation of lv_timer_handler_mutex */
+  lv_timer_handler_mutexHandle = osMutexNew(&lv_timer_handler_mutex_attributes);
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
@@ -163,7 +171,9 @@ void StartTask02(void *argument)
   /* Infinite loop */
   for(;;)
   {
+		osMutexAcquire(lv_timer_handler_mutexHandle, portMAX_DELAY);
 		lv_timer_handler();
+		osMutexRelease(lv_timer_handler_mutexHandle);
     osDelay(5);
   }
   /* USER CODE END StartTask02 */

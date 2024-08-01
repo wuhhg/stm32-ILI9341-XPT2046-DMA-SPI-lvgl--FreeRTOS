@@ -77,14 +77,14 @@ void lv_port_disp_init(void)
 
     /* Example for 1) */
     static lv_disp_draw_buf_t draw_buf_dsc_1;
-    static lv_color_t buf_1[MY_DISP_HOR_RES * 10];                          /*A buffer for 10 rows*/
-    lv_disp_draw_buf_init(&draw_buf_dsc_1, buf_1, NULL, MY_DISP_HOR_RES * 10);   /*Initialize the display buffer*/
+    static lv_color_t buf_1[MY_DISP_HOR_RES * 80];                          /*A buffer for 10 rows*/
+    lv_disp_draw_buf_init(&draw_buf_dsc_1, buf_1, NULL, MY_DISP_HOR_RES * 80);   /*Initialize the display buffer*/
 
     /* Example for 2) */
 //    static lv_disp_draw_buf_t draw_buf_dsc_2;
-//    static lv_color_t buf_2_1[MY_DISP_HOR_RES * 50];                        /*A buffer for 10 rows*/
-//    static lv_color_t buf_2_2[MY_DISP_HOR_RES * 50];                        /*An other buffer for 10 rows*/
-//    lv_disp_draw_buf_init(&draw_buf_dsc_2, buf_2_1, buf_2_2, MY_DISP_HOR_RES * 50);   /*Initialize the display buffer*/
+//    static lv_color_t buf_2_1[MY_DISP_HOR_RES * 40];                        /*A buffer for 10 rows*/
+//    static lv_color_t buf_2_2[MY_DISP_HOR_RES * 40];                        /*An other buffer for 10 rows*/
+//    lv_disp_draw_buf_init(&draw_buf_dsc_2, buf_2_1, buf_2_2, MY_DISP_HOR_RES * 40);   /*Initialize the display buffer*/
 
     /* Example for 3) also set disp_drv.full_refresh = 1 below*/
 //    static lv_disp_draw_buf_t draw_buf_dsc_3;
