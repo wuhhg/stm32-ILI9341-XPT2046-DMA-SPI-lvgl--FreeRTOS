@@ -217,7 +217,8 @@ static bool touchpad_is_pressed(void)
 static void touchpad_get_xy(lv_coord_t * x, lv_coord_t * y)
 {
     /*Your code comes here*/
-		ILI9341_TouchGetCoordinates(x, y);
+		ILI9341_GetTouch(x,y);
+		//ILI9341_TouchGetCoordinates(x, y);
 }
 
 ///*------------------

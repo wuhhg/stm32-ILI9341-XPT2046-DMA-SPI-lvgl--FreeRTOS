@@ -17,7 +17,13 @@ void ILI9341_TouchUnselect() {
 bool ILI9341_TouchPressed() {
     return HAL_GPIO_ReadPin(ILI9341_TOUCH_IRQ_GPIO_Port, ILI9341_TOUCH_IRQ_Pin) == GPIO_PIN_RESET;
 }
-
+void ILI9341_GetTouch(uint16_t* x, uint16_t* y){
+	while(1){
+		if(ILI9341_TouchGetCoordinates(x,y)){
+			break;
+		}
+	}
+}
 bool ILI9341_TouchGetCoordinates(uint16_t* x, uint16_t* y) {
     static const uint8_t cmd_read_x[] = { READ_X };
     static const uint8_t cmd_read_y[] = { READ_Y };
@@ -33,27 +39,19 @@ bool ILI9341_TouchGetCoordinates(uint16_t* x, uint16_t* y) {
     for(uint8_t i = 0; i < 16; i++) {
         if(!ILI9341_TouchPressed())
             break;
-
         nsamples++;
-
         HAL_SPI_Transmit(&ILI9341_TOUCH_SPI_PORT, (uint8_t*)cmd_read_y, sizeof(cmd_read_y), HAL_MAX_DELAY);
         uint8_t y1_raw[2];
-        HAL_SPI_TransmitReceive(&ILI9341_TOUCH_SPI_PORT, (uint8_t*)zeroes_tx, y1_raw, sizeof(y1_raw), HAL_MAX_DELAY);
-				
+        HAL_SPI_TransmitReceive(&ILI9341_TOUCH_SPI_PORT, (uint8_t*)zeroes_tx, y1_raw, sizeof(y1_raw), HAL_MAX_DELAY);	
 				HAL_SPI_Transmit(&ILI9341_TOUCH_SPI_PORT, (uint8_t*)cmd_read_x, sizeof(cmd_read_x), HAL_MAX_DELAY);
         uint8_t x1_raw[2];
         HAL_SPI_TransmitReceive(&ILI9341_TOUCH_SPI_PORT, (uint8_t*)zeroes_tx, x1_raw, sizeof(x1_raw), HAL_MAX_DELAY);
-				
 				HAL_SPI_Transmit(&ILI9341_TOUCH_SPI_PORT, (uint8_t*)cmd_read_y, sizeof(cmd_read_y), HAL_MAX_DELAY);
 				uint8_t y2_raw[2];
         HAL_SPI_TransmitReceive(&ILI9341_TOUCH_SPI_PORT, (uint8_t*)zeroes_tx, y2_raw, sizeof(y2_raw), HAL_MAX_DELAY);
-				
-        
-				
 				HAL_SPI_Transmit(&ILI9341_TOUCH_SPI_PORT, (uint8_t*)cmd_read_x, sizeof(cmd_read_x), HAL_MAX_DELAY);
         uint8_t x2_raw[2];
         HAL_SPI_TransmitReceive(&ILI9341_TOUCH_SPI_PORT, (uint8_t*)zeroes_tx, x2_raw, sizeof(x2_raw), HAL_MAX_DELAY);
-
         avg_x1 += (((uint16_t)x1_raw[0]) << 8) | ((uint16_t)x1_raw[1]);
         avg_y1 += (((uint16_t)y1_raw[0]) << 8) | ((uint16_t)y1_raw[1]);
 				avg_x2 += (((uint16_t)x2_raw[0]) << 8) | ((uint16_t)x2_raw[1]);
@@ -61,10 +59,8 @@ bool ILI9341_TouchGetCoordinates(uint16_t* x, uint16_t* y) {
     }
 
     ILI9341_TouchUnselect();
-
     if(nsamples < 16)
         return false;
-		
     uint32_t raw_x1 = (avg_x1 / 16);
     if(raw_x1 < ILI9341_TOUCH_MIN_RAW_X) raw_x1 = ILI9341_TOUCH_MIN_RAW_X;
     if(raw_x1 > ILI9341_TOUCH_MAX_RAW_X) raw_x1 = ILI9341_TOUCH_MAX_RAW_X;
@@ -80,7 +76,7 @@ bool ILI9341_TouchGetCoordinates(uint16_t* x, uint16_t* y) {
 		uint32_t raw_y2 = (avg_y2 / 16);
     if(raw_y2 < ILI9341_TOUCH_MIN_RAW_Y) raw_y2 = ILI9341_TOUCH_MIN_RAW_Y;
     if(raw_y2 > ILI9341_TOUCH_MAX_RAW_Y) raw_y2 = ILI9341_TOUCH_MAX_RAW_Y;
-		int ERR_RANGE=150;
+		int ERR_RANGE=500;
 		uint32_t raw_x;
 		uint32_t raw_y;
 		if(((raw_x2<=raw_x1&&raw_x1<raw_x2+ERR_RANGE)||(raw_x1<=raw_x2&&raw_x2<raw_x1+ERR_RANGE))//前后两次采样在+-50内
