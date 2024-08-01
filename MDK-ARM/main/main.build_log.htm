@@ -9,12 +9,12 @@ License Information: qqq admin, qqq, LIC=CRMW3-A32BG-HR8XN-YLIQC-L22WC-N1LJU
  
 Tool Versions:
 Toolchain:       MDK-ARM Professional  Version: 5.35.0.2
-Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
-C Compiler:      ArmClang.exe V6.16
-Assembler:       Armasm.exe V6.16
-Linker/Locator:  ArmLink.exe V6.16
-Library Manager: ArmAr.exe V6.16
-Hex Converter:   FromElf.exe V6.16
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
 CPU DLL:         SARMCM3.DLL V5.35.0.2
 Dialog DLL:      DCM.DLL V1.17.3.0
 Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
@@ -25,13 +25,24 @@ D:\stm32-ili9341-master\MDK-ARM\main.uvprojx
 Project File Date:  08/01/2024
 
 <h2>Output:</h2>
-*** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'main'
-compiling main.c...
+compiling lv_port_disp_template.c...
+../Lib/ili9341/ili9341.h(68): warning:  #1295-D: Deprecated declaration ILI9341_Unselect - give arg types
+  void ILI9341_Unselect();
+../Lib/ili9341/ili9341.h(77): warning:  #1295-D: Deprecated declaration ILI9341_Select - give arg types
+  void ILI9341_Select();
+../Lib/ili9341/ili9341.h(78): warning:  #1295-D: Deprecated declaration ILI9341_Unselect - give arg types
+  void ILI9341_Unselect();
+..\Middlewares\LVGL\GUI\lvgl\examples\porting\lv_port_disp_template.c(134): warning:  #223-D: function "init" declared implicitly
+  		init();
+..\Middlewares\LVGL\GUI\lvgl\examples\porting\lv_port_disp_template.c(28): warning:  #177-D: variable "disp_drv"  was declared but never referenced
+  static lv_disp_drv_t disp_drv;
+..\Middlewares\LVGL\GUI\lvgl\examples\porting\lv_port_disp_template.c: 5 warnings, 0 errors
 linking...
-Program Size: Code=209964 RO-data=104640 RW-data=2076 ZI-data=127412  
+Program Size: Code=216600 RO-data=104736 RW-data=2860 ZI-data=101044  
 FromELF: creating hex file...
-"main\main.axf" - 0 Error(s), 0 Warning(s).
+"main\main.axf" - 0 Error(s), 5 Warning(s).
 
 <h2>Software Packages used:</h2>
 
