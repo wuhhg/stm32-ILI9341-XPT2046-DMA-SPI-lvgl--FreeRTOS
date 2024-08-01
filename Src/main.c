@@ -112,21 +112,7 @@ void touch() {
     }
 }
 
-/* 在main.c 或者在 tim.c 里面都可以写 */
-/* 定时器中断回调函数，达到定时器所设定的时间以后，进入中断 */
-/* 在退出中断的时候就会调用中断回调函数 */
-/* 一般在这里写要执行的操作 */
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-    
-    if (htim == (&htim10))
-    {
-			
-			lv_tick_inc(1);
-			
-    }
-}
 
 
 /* USER CODE END 0 */
@@ -469,6 +455,32 @@ static void MX_GPIO_Init(void)
 
 
 /* USER CODE END 4 */
+
+/**
+  * @brief  Period elapsed callback in non blocking mode
+  * @note   This function is called  when TIM1 interrupt took place, inside
+  * HAL_TIM_IRQHandler(). It makes a direct call to HAL_IncTick() to increment
+  * a global variable "uwTick" used as application time base.
+  * @param  htim : TIM handle
+  * @retval None
+  */
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* USER CODE BEGIN Callback 0 */
+
+  /* USER CODE END Callback 0 */
+  if (htim->Instance == TIM1) {
+    HAL_IncTick();
+  }
+  /* USER CODE BEGIN Callback 1 */
+	if (htim == (&htim10))
+   {
+			
+			lv_tick_inc(1);
+			
+   }
+  /* USER CODE END Callback 1 */
+}
 
 /**
   * @brief  This function is executed in case of error occurrence.

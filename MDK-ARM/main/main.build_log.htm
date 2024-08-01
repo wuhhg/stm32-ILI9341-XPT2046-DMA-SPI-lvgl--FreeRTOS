@@ -27,25 +27,11 @@ Project File Date:  08/01/2024
 <h2>Output:</h2>
 *** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'main'
-compiling ili9341_touch.c...
-../Middlewares/LVGL/GUI/lvgl/examples/porting/lv_port_indev_template.c(220): warning: passing 'lv_coord_t *' (aka 'short *') to parameter of type 'uint16_t *' (aka 'unsigned short *') converts between pointers to integer types with different sign [-Wpointer-sign]
-                ILI9341_GetTouch(x,y);
-                                 ^
-../Lib/ili9341\ili9341_touch.h(32): note: passing argument to parameter 'x' here
-void ILI9341_GetTouch(uint16_t* x, uint16_t* y);
-                                ^
-../Middlewares/LVGL/GUI/lvgl/examples/porting/lv_port_indev_template.c(220): warning: passing 'lv_coord_t *' (aka 'short *') to parameter of type 'uint16_t *' (aka 'unsigned short *') converts between pointers to integer types with different sign [-Wpointer-sign]
-                ILI9341_GetTouch(x,y);
-                                   ^
-../Lib/ili9341\ili9341_touch.h(32): note: passing argument to parameter 'y' here
-void ILI9341_GetTouch(uint16_t* x, uint16_t* y);
-                                             ^
-2 warnings generated.
-compiling lv_port_indev_template.c...
+compiling main.c...
 linking...
-Program Size: Code=209816 RO-data=104640 RW-data=2076 ZI-data=127340  
+Program Size: Code=209964 RO-data=104640 RW-data=2076 ZI-data=127412  
 FromELF: creating hex file...
-"main\main.axf" - 0 Error(s), 2 Warning(s).
+"main\main.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 

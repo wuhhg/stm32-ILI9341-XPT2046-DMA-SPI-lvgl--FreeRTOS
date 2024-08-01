@@ -3,6 +3,7 @@
 "main\main.o"
 "main\stm32f4xx_it.o"
 "main\stm32f4xx_hal_msp.o"
+"main\stm32f4xx_hal_timebase_tim.o"
 "main\stm32f4xx_hal_spi.o"
 "main\stm32f4xx_hal_rcc.o"
 "main\stm32f4xx_hal_rcc_ex.o"
