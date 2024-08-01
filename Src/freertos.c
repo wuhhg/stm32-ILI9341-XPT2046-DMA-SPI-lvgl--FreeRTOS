@@ -26,6 +26,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "lvgl.h"
+#include "lv_demo_benchmark.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -158,10 +159,12 @@ void StartDefaultTask(void *argument)
 void StartTask02(void *argument)
 {
   /* USER CODE BEGIN StartTask02 */
+	lv_demo_benchmark();
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+		lv_timer_handler();
+    osDelay(5);
   }
   /* USER CODE END StartTask02 */
 }

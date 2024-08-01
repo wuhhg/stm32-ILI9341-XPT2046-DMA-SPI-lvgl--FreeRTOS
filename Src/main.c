@@ -152,7 +152,6 @@ int main(void)
 	lv_port_disp_init();
 	lv_port_indev_init();
 	
-	lv_demo_benchmark();
 	
 	//lv_demo_stress();
 	//init();
@@ -178,8 +177,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-		HAL_Delay(5);
-		lv_timer_handler();
+		
+		
 
   }
   /* USER CODE END 3 */
