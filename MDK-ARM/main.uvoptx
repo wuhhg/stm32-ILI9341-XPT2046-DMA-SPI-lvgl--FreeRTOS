@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ProjectOpt xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="project_optx.xsd">
 
   <SchemaVersion>1.0</SchemaVersion>
@@ -45,7 +45,7 @@
         <PageWidth>79</PageWidth>
         <PageLength>66</PageLength>
         <TabStop>8</TabStop>
-        <ListingPath></ListingPath>
+        <ListingPath />
       </OPTLEX>
       <ListingPage>
         <CreateCListing>1</CreateCListing>
@@ -104,16 +104,16 @@
         <bSchkAxf>0</bSchkAxf>
         <bTchkAxf>0</bTchkAxf>
         <nTsel>6</nTsel>
-        <sDll></sDll>
-        <sDllPa></sDllPa>
-        <sDlgDll></sDlgDll>
-        <sDlgPa></sDlgPa>
-        <sIfile></sIfile>
-        <tDll></tDll>
-        <tDllPa></tDllPa>
-        <tDlgDll></tDlgDll>
-        <tDlgPa></tDlgPa>
-        <tIfile></tIfile>
+        <sDll />
+        <sDllPa />
+        <sDlgDll />
+        <sDlgPa />
+        <sIfile />
+        <tDll />
+        <tDllPa />
+        <tDlgDll />
+        <tDlgPa />
+        <tIfile />
         <pMon>STLink\ST-LINKIII-KEIL_SWO.dll</pMon>
       </DebugOpt>
       <TargetDriverDllRegistry>
@@ -128,7 +128,7 @@
           <Name>-U-O142 -O2254 -S0 -C0 -N00("ARM CoreSight SW-DP") -D00(2BA01477) -L00(0) -TO18 -TC10000000 -TP21 -TDS8007 -TDT0 -TDC1F -TIEFFFFFFFF -TIP8 -FO7 -FD20000000 -FC800 -FN1 -FF0STM32F4xx_512.FLM -FS08000000 -FL080000 -FP0($$Device:STM32F411CEUx$CMSIS\Flash\STM32F4xx_512.FLM)</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint/>
+      <Breakpoint />
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
@@ -158,19 +158,19 @@
         <newCpu>0</newCpu>
         <uProt>0</uProt>
       </DebugFlag>
-      <LintExecutable></LintExecutable>
-      <LintConfigFile></LintConfigFile>
+      <LintExecutable />
+      <LintConfigFile />
       <bLintAuto>0</bLintAuto>
       <bAutoGenD>0</bAutoGenD>
       <LntExFlags>0</LntExFlags>
-      <pMisraName></pMisraName>
-      <pszMrule></pszMrule>
-      <pSingCmds></pSingCmds>
-      <pMultCmds></pMultCmds>
-      <pMisraNamep></pMisraNamep>
-      <pszMrulep></pszMrulep>
-      <pSingCmdsp></pSingCmdsp>
-      <pMultCmdsp></pMultCmdsp>
+      <pMisraName />
+      <pszMrule />
+      <pSingCmds />
+      <pMultCmds />
+      <pMisraNamep />
+      <pszMrulep />
+      <pSingCmdsp />
+      <pMultCmdsp />
       <DebugDescription>
         <Enable>1</Enable>
         <EnableFlashSeq>1</EnableFlashSeq>
@@ -443,7 +443,7 @@
 
   <Group>
     <GroupName>Middlewares/lvgl/example/porting</GroupName>
-    <tvExp>1</tvExp>
+    <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -2634,21 +2634,13 @@
   </Group>
 
   <Group>
-    <GroupName>::CMSIS</GroupName>
-    <tvExp>0</tvExp>
-    <tvExpOptDlg>0</tvExpOptDlg>
-    <cbSel>0</cbSel>
-    <RteFlg>1</RteFlg>
-  </Group>
-
-  <Group>
     <GroupName>Drivers/STM32F4xx_HAL_Driver</GroupName>
     <tvExp>0</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>196</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2660,7 +2652,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>197</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2672,7 +2664,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>198</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2684,7 +2676,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>199</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2696,7 +2688,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>200</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2708,7 +2700,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>201</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2720,7 +2712,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>202</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2732,7 +2724,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>203</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2744,7 +2736,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>204</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2756,7 +2748,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>205</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2768,7 +2760,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>206</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2780,7 +2772,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>207</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2792,7 +2784,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>208</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2804,7 +2796,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>209</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2816,7 +2808,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>210</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2828,7 +2820,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>211</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2840,7 +2832,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>16</GroupNumber>
+      <GroupNumber>15</GroupNumber>
       <FileNumber>212</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2860,7 +2852,7 @@
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
     <File>
-      <GroupNumber>17</GroupNumber>
+      <GroupNumber>16</GroupNumber>
       <FileNumber>213</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2872,7 +2864,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>17</GroupNumber>
+      <GroupNumber>16</GroupNumber>
       <FileNumber>214</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2884,7 +2876,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>17</GroupNumber>
+      <GroupNumber>16</GroupNumber>
       <FileNumber>215</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2896,7 +2888,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>17</GroupNumber>
+      <GroupNumber>16</GroupNumber>
       <FileNumber>216</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2908,7 +2900,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>17</GroupNumber>
+      <GroupNumber>16</GroupNumber>
       <FileNumber>217</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2920,7 +2912,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>17</GroupNumber>
+      <GroupNumber>16</GroupNumber>
       <FileNumber>218</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2932,7 +2924,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>17</GroupNumber>
+      <GroupNumber>16</GroupNumber>
       <FileNumber>219</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2944,7 +2936,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>17</GroupNumber>
+      <GroupNumber>16</GroupNumber>
       <FileNumber>220</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2956,7 +2948,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>17</GroupNumber>
+      <GroupNumber>16</GroupNumber>
       <FileNumber>221</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2968,7 +2960,7 @@
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>17</GroupNumber>
+      <GroupNumber>16</GroupNumber>
       <FileNumber>222</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
@@ -2979,6 +2971,14 @@
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
+  </Group>
+
+  <Group>
+    <GroupName>::CMSIS</GroupName>
+    <tvExp>0</tvExp>
+    <tvExpOptDlg>0</tvExpOptDlg>
+    <cbSel>0</cbSel>
+    <RteFlg>1</RteFlg>
   </Group>
 
 </ProjectOpt>

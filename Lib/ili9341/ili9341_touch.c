@@ -76,7 +76,7 @@ bool ILI9341_TouchGetCoordinates(uint16_t* x, uint16_t* y) {
 		uint32_t raw_y2 = (avg_y2 / 16);
     if(raw_y2 < ILI9341_TOUCH_MIN_RAW_Y) raw_y2 = ILI9341_TOUCH_MIN_RAW_Y;
     if(raw_y2 > ILI9341_TOUCH_MAX_RAW_Y) raw_y2 = ILI9341_TOUCH_MAX_RAW_Y;
-		int ERR_RANGE=500;
+		uint8_t ERR_RANGE=50;
 		uint32_t raw_x;
 		uint32_t raw_y;
 		if(((raw_x2<=raw_x1&&raw_x1<raw_x2+ERR_RANGE)||(raw_x1<=raw_x2&&raw_x2<raw_x1+ERR_RANGE))//前后两次采样在+-50内

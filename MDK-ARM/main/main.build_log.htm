@@ -27,22 +27,28 @@ Project File Date:  08/01/2024
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build target 'main'
-compiling lv_port_disp_template.c...
+compiling freertos.c...
+../Src/freertos.c(78): warning:  #223-D: function "lv_tick_inc" declared implicitly
+  	lv_tick_inc(1);
+../Src/freertos.c: 1 warning, 0 errors
+compiling main.c...
 ../Lib/ili9341/ili9341.h(68): warning:  #1295-D: Deprecated declaration ILI9341_Unselect - give arg types
   void ILI9341_Unselect();
 ../Lib/ili9341/ili9341.h(77): warning:  #1295-D: Deprecated declaration ILI9341_Select - give arg types
   void ILI9341_Select();
 ../Lib/ili9341/ili9341.h(78): warning:  #1295-D: Deprecated declaration ILI9341_Unselect - give arg types
   void ILI9341_Unselect();
-..\Middlewares\LVGL\GUI\lvgl\examples\porting\lv_port_disp_template.c(134): warning:  #223-D: function "init" declared implicitly
-  		init();
-..\Middlewares\LVGL\GUI\lvgl\examples\porting\lv_port_disp_template.c(28): warning:  #177-D: variable "disp_drv"  was declared but never referenced
-  static lv_disp_drv_t disp_drv;
-..\Middlewares\LVGL\GUI\lvgl\examples\porting\lv_port_disp_template.c: 5 warnings, 0 errors
+../Lib/ili9341/ili9341_touch.h(31): warning:  #1295-D: Deprecated declaration ILI9341_TouchUnselect - give arg types
+  void ILI9341_TouchUnselect();
+../Lib/ili9341/ili9341_touch.h(33): warning:  #1295-D: Deprecated declaration ILI9341_TouchPressed - give arg types
+  bool ILI9341_TouchPressed();
+../Src/main.c(97): warning:  #177-D: variable "npoints"  was declared but never referenced
+      int npoints = 0;
+../Src/main.c: 6 warnings, 0 errors
 linking...
-Program Size: Code=216600 RO-data=104736 RW-data=2860 ZI-data=101044  
+Program Size: Code=165244 RO-data=104728 RW-data=2860 ZI-data=100964  
 FromELF: creating hex file...
-"main\main.axf" - 0 Error(s), 5 Warning(s).
+"main\main.axf" - 0 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -66,7 +72,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE:5.5.0
       Include file:  CMSIS\Core\Include\tz_context.h
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:02
 </pre>
 </body>
 </html>

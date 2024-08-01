@@ -95,12 +95,13 @@ void touch() {
     ILI9341_FillScreen(ILI9341_BLACK);
 		//ILI9341_WriteString(0,0, "cc",Font_7x10, ILI9341_BLACK,ILI9341_WHITE);
     int npoints = 0;
-		
+		uint16_t x, y;
     while(1/*npoints < 10000*/) {
-        uint16_t x, y;
-        if(ILI9341_TouchGetCoordinates(&x, &y)){
+        
+        if(ILI9341_TouchPressed()){
+						ILI9341_GetTouch(&x,&y);
             ILI9341_DrawPixel(x, y, ILI9341_WHITE);
-            npoints++;
+  
         }
     }
 }
@@ -179,14 +180,6 @@ int main(void)
     /* USER CODE BEGIN 3 */
 		HAL_Delay(5);
 		lv_timer_handler();
-//		uint16_t x, y;
-//		
-//    if(ILI9341_TouchPressed()){
-//				i++;
-//				sprintf(a,"%d",i);
-//				ILI9341_WriteString(30,30,a,Font_16x26,ILI9341_BLUE,ILI9341_CYAN);
-//        ILI9341_FillRectangle(20, 60, 10, 20, ILI9341_RED);
-//    }
 
   }
   /* USER CODE END 3 */
@@ -264,7 +257,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 	if (htim == (&htim10))
    {
 			
-			lv_tick_inc(1);
+			//lv_tick_inc(1);
 			
    }
   /* USER CODE END Callback 1 */
