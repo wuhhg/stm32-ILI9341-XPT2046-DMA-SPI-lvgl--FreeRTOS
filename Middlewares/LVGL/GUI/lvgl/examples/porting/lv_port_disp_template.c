@@ -27,6 +27,7 @@
 static void disp_init(void);
 static lv_disp_drv_t disp_drv;
 static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_color_t * color_p);
+static lv_disp_drv_t* disp_drv_temp;
 //static void gpu_fill(lv_disp_drv_t * disp_drv, lv_color_t * dest_buf, lv_coord_t dest_width,
 //        const lv_area_t * fill_area, lv_color_t color);
 
@@ -76,8 +77,8 @@ void lv_port_disp_init(void)
 
     /* Example for 1) */
     static lv_disp_draw_buf_t draw_buf_dsc_1;
-    static lv_color_t buf_1[MY_DISP_HOR_RES * 30];                          /*A buffer for 10 rows*/
-    lv_disp_draw_buf_init(&draw_buf_dsc_1, buf_1, NULL, MY_DISP_HOR_RES * 30);   /*Initialize the display buffer*/
+    static lv_color_t buf_1[MY_DISP_HOR_RES * 60];                          /*A buffer for 10 rows*/
+    lv_disp_draw_buf_init(&draw_buf_dsc_1, buf_1, NULL, MY_DISP_HOR_RES * 60);   /*Initialize the display buffer*/
 
     /* Example for 2) */
 //    static lv_disp_draw_buf_t draw_buf_dsc_2;
@@ -132,6 +133,9 @@ static void disp_init(void)
     /*You code here*/
 		init();
 }
+void func3(void){
+	lv_disp_flush_ready(disp_drv_temp);
+}
 
 /*Flush the content of the internal buffer the specific area on the display
  *You can use DMA or any hardware acceleration to do this operation in the background but
@@ -153,37 +157,30 @@ static void disp_flush(lv_disp_drv_t * disp_drv, const lv_area_t * area, lv_colo
 	ILI9341_SetAddressWindow(area->x1,area->y1,area->x2,area->y2);
 	HAL_GPIO_WritePin(ILI9341_DC_GPIO_Port, ILI9341_DC_Pin, GPIO_PIN_SET);
 	//ILI9341_Unselect();
-	HAL_SPI_Transmit_DMA(&hspi1,(uint16_t *)color_p, num);
+	HAL_SPI_Transmit_DMA(&hspi1,(uint8_t *)color_p, num);
+	disp_drv_temp=disp_drv;
 	//HAL_SPI_Transmit_DMA(&hspi1,(uint8_t *)color_p->full, num);
-	while(HAL_SPI_GetState(&hspi1)!=HAL_SPI_STATE_READY);
-	
-		ILI9341_Unselect();
-		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
-		//ILI9341_Select();
-		lv_disp_flush_ready(disp_drv);
-		HAL_SPI_DMAStop(&hspi1);
-		//ILI9341_FillRectangle_3(area->x1,area->y1,area->x2-area->x1+1,area->y2-area->y1+1,color_p);
-	
-//    for(y = area->y1; y <= area->y2; y++) {
-//        for(x = area->x1; x <= area->x2; x++) {
-//					ILI9341_DrawPixel(x, y, color_p->full);
-//            //set_pixel(x, y, *color_p);  // 由于color_p 是结构体类型, 很容易误将其当成结构体然后用拼接的方法， 但实际不能将RGB拼起来
-//            color_p++;
-//        }
-//    }
+//	while(HAL_SPI_GetState(&hspi1)!=HAL_SPI_STATE_READY);
+//	ILI9341_Unselect();
+//	HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
+//	
+//	func3();
+//	HAL_SPI_DMAStop(&hspi1);
 
     /*IMPORTANT!!!
      *Inform the graphics library that you are ready with the flushing*/
-    //lv_disp_flush_ready(disp_drv);
 }
+
+
 void HAL_SPI_TxCpltCallback(SPI_HandleTypeDef *hspi)
 {
 	if(hspi->Instance==SPI1)
 	{
 		ILI9341_Unselect();
-		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
+		//HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
+		//HAL_GPIO_Trogger(GPIOC,GPIO_PIN_13,GPIO_PIN_SET);
 		//ILI9341_Select();
-		lv_disp_flush_ready(&disp_drv);
+		func3();
 		HAL_SPI_DMAStop(&hspi1);
 		
 	}
