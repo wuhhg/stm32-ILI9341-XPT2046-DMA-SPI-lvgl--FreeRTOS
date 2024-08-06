@@ -1,18 +1,9 @@
-# stm32-ili9341
+# stm32 ILI9341 + XPT2046 DMA+硬件SPI lvgl + FreeRTOS 模板
 
-STM32 HAL-based library for ILI9341 TFT modules with touchscreen.
+本项目基于HAL库,移植了ILI9341 + XPT2046的驱动到STM32F411CEU6上,并添加lvgl以及FreeRTOS模板
 
-This library is based on [afiskon/stm32-st7735][u1] and
-[afiskon/stm32-ssd1306][u2]. Initialization sequence for ILI9341 was borrowed
-from [martnak/STM32-ILI9341][u3].
+接线如图下所示.下载后默认运行lv_demo_benchmark();
 
-See also:
+ILI9341 + XPT2046驱动代码参考https://github.com/afiskon/stm32-ili9341
 
-* https://github.com/afiskon/stm32-i2c-lcd-1602
-* https://github.com/afiskon/stm32-ssd1306
-* https://github.com/afiskon/stm32-ssd1351
-* https://github.com/afiskon/stm32-st7735
-
-[u1]: https://github.com/afiskon/stm32-st7735
-[u2]: https://github.com/afiskon/stm32-ssd1306
-[u3]: https://github.com/martnak/STM32-ILI9341
+![image-20240806222141851](%E5%9B%BE%E7%89%87/image-20240806222141851.png)

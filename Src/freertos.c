@@ -204,13 +204,15 @@ void StartTask02(void *argument)
   /* USER CODE BEGIN StartTask02 */
 	
 	osMutexAcquire(myMutex02Handle, portMAX_DELAY);
+	
 	lv_demo_benchmark();
-//	lv_obj_t * label1 = lv_label_create(lv_scr_act());
-//	lv_obj_set_pos(label1, 10, 10);
 	osMutexRelease(myMutex02Handle);
   /* Infinite loop */
   for(;;)
   {
+		osMutexAcquire(myMutex02Handle, portMAX_DELAY);
+		
+		osMutexRelease(myMutex02Handle);
    osDelay(100);
   }
   /* USER CODE END StartTask02 */
@@ -257,7 +259,7 @@ void StartTask04(void *argument)
   for(;;)
   {
 		osMutexAcquire(myMutex02Handle, portMAX_DELAY);
-		HAL_GPIO_TogglePin(GPIOC,GPIO_PIN_13);
+		
 		osMutexRelease(myMutex02Handle);
     osDelay(100);
   }
